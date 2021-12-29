@@ -35,3 +35,12 @@ with tf.GradientTape() as tape:
     loss = tf.reduce_mean(y**2)
 
 grad = tape.gradient(loss, layer.trainable_variables)
+
+# ex 4
+
+x = tf.constant(3.0)
+with tf.GradientTape() as tape:
+    tape.watch(x)
+    y = x**2
+
+dx = tape.gradient(y, x)
